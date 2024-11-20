@@ -50,22 +50,25 @@ public:
 	// DFS traveral of the graph:
 	// Keep:
 	//  Choose a node that has not been explored
-	//  performing DFS_FromSource from the node
+	//  performing DFS traversal from that node
 	// unitl all nodes are explored
 	void DFS_Graph ();
 
 	// DFS traversal from node s 
-	void DFS_FromSource (NodeType s);
+	void DFS (NodeType s);
+        void DFS_recursive (NodeType s);
 
+        
 	//Todo1: Implement this function. Hint: call BFS_Explore(s), and then
 	// use the pred hashtable to construct the path 
 	//Return the shortes hop path from s to d, if there is no path, return 
 	// an empty vector
 	vector<NodeType> ShortestHopPath (NodeType s, NodeType d); 
 
+
 	//Todo 2: Implement s_t_connect using DFS traversal 
         //Return true if there is a path from node s to node t
-        bool S_T_IsConnected (NodeType s, NodeType t); 
+        bool IsConnected (NodeType s, NodeType t); 
 
 	//Todo 3: Return the topological order of the graph
 	//If the graph has a cycle, return an emtpy vector (as there is no topological ordering) and set cycle to true.
