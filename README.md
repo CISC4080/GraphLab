@@ -11,8 +11,7 @@ This lab practices implementing graph algorithms in C++.
 
 
 ## Requirement:
-  Basic BFS, non-recursive DFS traversal functions have been provided. You are asked: 
-  * Implement the **DFS()** recursively. Note that a **DFS()** implemented using stack to backtrack has been provided.
+  Basic BFS, DFS traversal functions have been provided. You are asked: 
   * Implemented **ShortestHopPath (NodeType s, NodeType d)** function.
   * Implement **IsConnected (NodeType s, NodeType t)** function.
   * Implement **TopologicalSort (bool & cycle)** function. 
