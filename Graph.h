@@ -1,0 +1,101 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <unordered_map>
+#include <string>
+#include <assert.h>
+
+using namespace std;
+typedef string NodeType;
+
+//A graph where each node is a string 
+class Graph{
+public:
+
+	Graph(){
+		directed=true;
+	}
+
+	//Create a graph object with the given nodes
+	//and initialize the adjacent lists to empty 
+	Graph (NodeType nodeArray[], int len, bool d);
+
+	/* load a graph from a text file which specifies a graph in the 
+	 * following format 
+      true
+      5 A B C D E 
+      A -> B
+      C -> D
+      e -> A
+      */
+      void InitializeFromFile(string fileName); 
+
+	//Precondition: from and to nodes are in the vector of nodes 
+	void AddEdge (const NodeType & from, const NodeType & to);
+
+	//return the adjacent list of node u 
+	//list<NodeType> AdjacentNodes (const NodeType & u);
+
+	int FindNode (const NodeType & u);
+
+	void Display();
+
+	//Explore and visit all vertices of the graph that are
+	//reachable from node s in BFS order
+	// When finish: Display
+	//     * the depth of all reachable vertices (i.e., shortest distance to s)
+	//     * the predecessors of all reachable vertices (BFS tree)
+	void BFS_Explore (NodeType s);
+
+	// DFS traveral of the graph:
+	// Keep:
+	//  Choose a node that has not been explored
+	//  performing DFS_FromSource from the node
+	// unitl all nodes are explored
+	void DFS ();
+
+	// DFS traversal from node s 
+	void DFS_FromSource (NodeType s);
+
+	//Todo1: Implement this function. Hint: call BFS_Explore(s), and then
+	// use the pred hashtable to construct the path 
+	//Return the shortes hop path from s to d, if there is no path, return 
+	// an empty vector
+	vector<NodeType> ShortestHopPath (NodeType s, NodeType d); 
+
+	
+	//Todo 2: Return the topological order of the graph
+	//If the graph has a cycle, return an emtpy vector (as there is no topological ordering).
+	//Hint: exended DFS: when checking curNode's neighbor, if we find a neighbor node's color is gray => there is a cycle
+	// In DFS, everytime a node is pop off the stack, insert the node into the front of the list
+	// of nodes
+	// You can extend DFS() and DFS_FromSource...
+	vector<NodeType> TopologicalSort (); 
+
+private:
+	bool directed; //true: directed graph, false: undirected graph 
+
+	vector<NodeType> nodes;
+
+	//For a node u, 
+	//adjacentLists[u] is the adjacent list of node u
+	//
+	//for undirected graph, we store each edge twice, for example,
+	// if node a and b are connected by an edge, 
+	//   b is in the adjacent list of a, and a is in the adjacent list of b
+	unordered_map<NodeType, list<NodeType>> adjacentLists; 
+
+	//Data Structures used by BFS and DFS 
+	typedef enum Color{
+                White=0,
+                Gray=1,
+                Black=2} Color;
+        unordered_map<NodeType,int> d; //the depth/hop count of all nodes from s for BFS, 
+				//discover time for DFS
+        unordered_map<NodeType,NodeType> pred; // pred[u] is the node that leads us to u
+        unordered_map<NodeType,Color> color; //color[u] will be White, Gray, Black
+
+	int time; //Used by DFS 
+        unordered_map<NodeType,int> f; //finish time of a node 
+};
+
