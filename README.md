@@ -12,9 +12,10 @@ This lab practices implementing graph algorithms in C++.
 
 ## Requirement:
   Basic BFS, non-recursive DFS traversal functions have been provided. You are asked: 
-  * Implement the DFS() recursively.
-  * Add a member function to the Graph class for **is_connected**, testing if node s is connected to node t by a path.
-  * Extend or rewrite DFS_Graph() to detect cycle and return topological ordering (if there is no cycle).  
+  * Implement the **DFS()** recursively. Note that a **DFS()** implemented using stack to backtrack has been provided.
+  * Implemented **ShortestHopPath (NodeType s, NodeType d)** function.
+  * Implement **IsConnected (NodeType s, NodeType t)** function.
+  * Implement **TopologicalSort (bool & cycle)** function. 
 
 
 ## What to submit: 
