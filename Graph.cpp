@@ -279,7 +279,7 @@ void Graph::DFS_Graph()
 
 }
 
-void Graph::DFS_FromSource (NodeType src)
+void Graph::DFS (NodeType src)
 {
 	stack<NodeType> s; //all grey nodes
 
