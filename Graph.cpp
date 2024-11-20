@@ -206,59 +206,8 @@ void Graph::Display()
 //     * the predecessors of all reachable vertices (BFS tree)
 void Graph::BFS_Explore (NodeType s)
 {
-	queue<NodeType> Q;
 
-	// initialize all nodes to white, distance to INT_MAX
-	for (int i=0;i<nodes.size();i++)
-	{
-		color[nodes[i]]=White;
-		d[nodes[i]]=INT_MAX;
-	}
-
-	//source node init
-	color[s]=Gray;
-	d[s]=0;
-	//insert s into Q
-	Q.push(s);
-
-	//While-loop...
-	while (Q.size()!=0){
-		//get the node in the front of queue
-		NodeType u=Q.front();
-		Q.pop();
-
-		//For each node v in Adjacency list of u
-		// if it's white, do .... 
-		list<NodeType> adjNodes = adjacentLists[u];
-		for (NodeType v:adjNodes){
-
-			if (color[v]==White)
-			{
-				color[v]=Gray;
-				d[v]=d[u]+1;
-				pred[v]=u;
-				Q.push(v);
-			}
-		}
-		color[u]=Black;
-
-	}
-
-	//Display color, depth, predecessor 
-	for (int i=0;i<nodes.size();i++)
-	{
-		cout <<"Node " << nodes[i]<< " is ";
-		if (color[nodes[i]]==White)
-			cout <<" white ";
-		else if (color[nodes[i]]==Gray)
-			cout <<" gray ";
-		else if (color[nodes[i]]==Black)
-			cout <<" black ";
-		cout <<". depth is " << d[nodes[i]];
-		cout <<". Predecessor is "<< pred[nodes[i]]<<endl;
-	}
-
-
+	
 }
 
 void Graph::DFS_Graph()
