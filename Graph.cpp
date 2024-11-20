@@ -261,7 +261,7 @@ void Graph::BFS_Explore (NodeType s)
 
 }
 
-void Graph::DFS()
+void Graph::DFS_Graph()
 {
 
 	//initialize color
