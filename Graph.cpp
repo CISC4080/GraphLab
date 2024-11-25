@@ -55,15 +55,15 @@ the text file specify a graph as follows:
 	  else  if (word=="False" || word=="false" || word=="FALSE")
 		  directed= false; 
 
-	  cout <<"The file is " <<word<<endl;
+	  cout <<"The graph is directed: " <<word<<endl;
 
 	   //read an integer value (the number of vertices in the graph)
 	  int nodeNum;
 	 input >> nodeNum;
-	 cout <<"With "<<nodeNum<<" nodes"<<endl;
+	 cout <<" With "<<nodeNum<<" nodes"<<endl;
 
-	  /* for loop to read the given number of node
-		for each node read in, store it in "nodes" vector,
+	  /* for loop: to read the given number of node,
+		 store each node in "nodes" vector,
 		 and initialize the adjacent list for the node to empty
 		 list
 		 */
@@ -82,7 +82,7 @@ the text file specify a graph as follows:
 	   read one edge a time (by reading one node, 
 	   one string and another node)
 	   and insert the edge into the graph by calling
-	AddEdge
+	   AddEdge
 		*/
 	 NodeType fromNode, toNode;
 	 while (input >> fromNode >> word >> toNode)
@@ -228,6 +228,8 @@ void Graph::DFS_Graph()
 
 }
 
+//Non-recursive function performing DFS Traversal from node src.
+//A stack is used for backtracking purpose (instead of recursion)
 void Graph::DFS (NodeType src)
 {
 	stack<NodeType> s; //all grey nodes
@@ -257,7 +259,7 @@ void Graph::DFS (NodeType src)
                         cout <<neighbor <<" turns Gray"<<endl;
 			s.push (neighbor);
 		}
-		else{
+		else{ //no White neighbor, backtrack to previous node
 			color[curNode] = Black;
                         cout <<curNode <<" turns Black"<<endl;
 			s.pop ();
