@@ -40,6 +40,7 @@ public:
 
 	void Display();
 
+        //Todo #1: Implement this function
 	//Explore and visit all vertices of the graph that are
 	//reachable from node s in BFS order
 	// When finish: Display
@@ -55,25 +56,26 @@ public:
 	void DFS_Graph ();
 
 	// DFS traversal from node s 
-	void DFS (NodeType s);
+	void DFS (NodeType s); //DFS traversal from s, implemented withour recursion
+
+        //Todo #2: implement this function. 
         void DFS_recursive (NodeType s);
 
         
-	//Todo1: Implement this function. Hint: call BFS_Explore(s), and then
-	// use the pred hashtable to construct the path 
+	//Todo #3: Implement this function. Hint: call BFS_Explore(s), and then
+	// use the pred to construct the path 
 	//Return the shortes hop path from s to d, if there is no path, return 
 	// an empty vector
 	vector<NodeType> ShortestHopPath (NodeType s, NodeType d); 
 
 
-	//Todo 2: Implement s_t_connect using DFS traversal 
+	//Todo #4: Implement s_t_connect using DFS traversal 
         //Return true if there is a path from node s to node t
         bool IsConnected (NodeType s, NodeType t); 
 
-	//Todo 3: Return the topological order of the graph
-	//If the graph has a cycle, return an emtpy vector (as there is no topological ordering) and set cycle to true.
-        // other wise, return the topological order of the nodes and set cycle to false 
-	vector<NodeType> TopologicalSort (bool & cycle); 
+	//Todo #5: Extend DFS_Graph, so that it returns a topological order of the graph
+        // if the graph IS DAG as a vector of NodeType
+	
 
 private:
 	bool directed; //true: directed graph, false: undirected graph 
@@ -98,7 +100,5 @@ private:
         unordered_map<NodeType,NodeType> pred; // pred[u] is the node that leads us to u
         unordered_map<NodeType,Color> color; //color[u] will be White, Gray, Black
 
-	int time; //Used by DFS 
-        unordered_map<NodeType,int> f; //finish time of a node 
 };
 

@@ -221,7 +221,7 @@ void Graph::DFS_Graph()
 
 	for (int i=0;i<nodes.size();i++){
 		if (color[nodes[i]]==White) {
-			DFS_FromSource (nodes[i]);
+			DFS (nodes[i]);
 		}
 
 	}

@@ -15,7 +15,7 @@ int main()
         string command, fileName;
 
         do {
-		cout <<"Enter a command (BuildGraph, LoadFromFile, BFS, DFS, Quit):";
+		cout <<"Enter a command (BuildGraph, LoadFromFile, BFS, DFS, ShortestHop, IsConnected, TopoSort, Quit):";
 		cin >> command;
 
 		if (command=="BuildGraph") {
@@ -91,10 +91,12 @@ int main()
 				curGraph.BFS_Explore (srcNode);
 
 		} else if (command=="DFS"){
-			curGraph.DFS();
-		}
+			curGraph.DFS_Graph();
+		} 
+          
 
-	//Todo: test DFS and topological sorting 
+		//Todo: add support for command: ShortestHop, IsConnected, TopoSort... 
+
 	} while (command!="Quit" && command!="quit");
 
 	cout <<"Bye!\n";
