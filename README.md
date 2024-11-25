@@ -11,10 +11,11 @@ This lab practices implementing graph algorithms in C++.
 
 
 ## Requirement:
-  Basic BFS, DFS traversal functions have been provided. You are asked: 
-  * Implemented **ShortestHopPath (NodeType s, NodeType d)** function.
+  * Implement **BFS_Explore** function.
+  * Implement **ShortestHopPath (NodeType s, NodeType d)** function, by using the **BFS_Explore** function.
+  * Implement **DFS(NodeType s)**, DFS Traversal from the node s, recursively. 
   * Implement **IsConnected (NodeType s, NodeType t)** function.
-  * Implement **TopologicalSort (bool & cycle)** function. 
+  * Extend the given **DFS_Graph()** function to return a topological ordering of the nodes if the graph is Directed Acyclic Graph. 
 
 
 ## What to submit: 
