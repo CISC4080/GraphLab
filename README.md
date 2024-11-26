@@ -17,8 +17,14 @@ This lab practices implementing graph algorithms in C++.
   * Implement **IsConnected (NodeType s, NodeType t)** function.
   * Extend the given **DFS_Graph()** function to return a topological ordering of the nodes if the graph is Directed Acyclic Graph. 
 
-
+## Extra credit opportunities: 
+  * First extend the Graph class so that it can represent weighted graph, assocciating each edge with a real value, w.
+  * Then implement a function **Dijkstra (NodeType s)** that calculate the minimum distance paths from source node s to other nodes in the graph. The function
+    displays the **dist** and **pred** values for all nodes.
+    
 ## What to submit: 
 
-submit your Graph.cpp at the following link: 
+Submit your **Graph.cpp**, **Graph.h**, **Graph_driver.cpp** at the following link: 
 TBA. 
+
+This project is graded manually for correctness, and the previous "hand-grading" rubrics for coding style still apply. 
