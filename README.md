@@ -1,6 +1,6 @@
 # Graph_lab 
 
-This lab practices implementing graph algorithms in C++. 
+This lab practices implementing graph algorithms in C++. This lab uses multiple C++ STL template classes: queue, list, unordered_map, and priority queue (if you work on the extra credit). You can refer to the [slides](https://docs.google.com/presentation/d/19h2KhEC5Oy6bsS-22fL_KptM07GV9rZZvtJFpc2tTQU/edit#slide=id.p1) and the sample codes it links to. 
 
 ## Provided files: 
   * Graph.h: define the Graph class
